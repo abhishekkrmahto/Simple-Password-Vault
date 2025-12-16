@@ -25,17 +25,16 @@ public class AddPasswordClass {
         if (!newPassword.matches(".*[^a-zA-Z0-9].*")) {
             exceptionObj.passwordInputException();
             return;
-        }else if(userChecker.userExists(userName)){
+        } else if (userChecker.userExists(userName)) {
             System.out.println("----------------------------");
             System.out.println("|| User Already Exists ..... ||");
             System.out.println("----------------------------");
             return;
-        }
-         else {
-                usersStorage.addUser(userName,encyptDecypt.encryptPassword(newPassword));
-                usersStorage.addPass(userName, newPassword);
-                System.out.println("SuccessFully Password Stored !!");
-                return;
+        } else {
+            usersStorage.addUser(userName, encyptDecypt.encryptPassword(newPassword));
+            usersStorage.addPass(userName, encyptDecypt.encryptPassword(newPassword));
+            System.out.println("SuccessFully Password Stored !!");
+            return;
         }
     }
 }
